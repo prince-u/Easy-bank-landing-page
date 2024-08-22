@@ -1,5 +1,3 @@
-// so what i need to do is to bring in the hamburger icon, add an event listener on the hamburger icon to open the menu
-
 const hamburgerIcon = document.querySelector(".hamburger-icon");
 const dropDownMenu = document.querySelector(".nav-links");
 const fourPhonesImg = document.querySelector(".four-phones>img");
@@ -15,4 +13,12 @@ hamburgerIcon.addEventListener("click", (e) => {
   fourPhonesImg.classList.toggle("active");
   darkOverlay.classList.toggle("active");
   html.classList.toggle("active");
+});
+
+darkOverlay.addEventListener("click", () => {
+  dropDownMenu.classList.remove("active");
+  fourPhonesImg.classList.remove("active");
+  darkOverlay.classList.remove("active");
+  html.classList.remove("active");
+  hamburgerIcon.innerHTML = `<img src="images/icon-hamburger.svg" alt="">`;
 });

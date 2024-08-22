@@ -305,12 +305,15 @@ footer>.col1>.socials {
 }
 
 footer>.col1>.socials>svg {
-    transition: color 100ms linear;
-    fill: var(--lime-green)
+    cursor: pointer;
 }
 
-footer>.col1>.socials>img {
-    cursor: pointer;
+footer>.col1>.socials>svg path {
+    transition: fill 100ms linear;
+}
+
+footer>.col1>.socials>svg:hover path {
+    fill: var(--lime-green)
 }
 
 footer>.col2 {
@@ -353,22 +356,19 @@ footer>.col3>.copyright {
     }
 
     .dark-overlay {
-        display: none;
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 100vh;
+        height: 0;
         background-image: linear-gradient(var(--dark-blue) 10%, transparent);
         z-index: 100;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity ease-out 150ms;
+        transition: height ease-out 150ms;
     }
 
     .dark-overlay.active {
-        display: block;
-        opacity: 1;
+        height: 100vh;
     }
 
     .container {
@@ -396,12 +396,29 @@ footer>.col3>.copyright {
         gap: 1.5rem;
         color: var(--dark-blue);
         scale: 0;
-        transition: scale ease-out 100ms;
+        animation: scale-down linear 100ms forwards
+    }
+
+    @keyframes scale-up {
+        100% {
+            scale: 100%
+        }
+    }
+
+    @keyframes scale-down {
+        0% {
+            scale: 100%
+        }
+
+        100% {
+            scale: 0
+        }
+
     }
 
     nav>ul.nav-links.active {
         display: flex;
-        scale: 100%
+        animation: scale-up cubic-bezier(.18, .89, .32, 1.28) 150ms forwards
     }
 
     nav>ul.nav-links>li {
@@ -488,11 +505,11 @@ footer>.col3>.copyright {
     }
 
     footer>.col1>.socials {
-        gap: .85rem;
+        gap: 1.2rem;
     }
 
-    footer>.col1>.socials img {
-        width: 1.6rem;
+    footer>.col1>.socials svg {
+        scale: 115%;
     }
 
     footer>.col2 {
@@ -501,9 +518,16 @@ footer>.col3>.copyright {
 
     footer>.col2>.footer-links {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
         row-gap: .85rem;
-        text-align: center;
+        justify-items: center;
+
+    }
+
+    footer>.col2>.footer-links>li {
+        width: max-content;
+        padding-inline: 1rem;
+
     }
 
     footer>.col2>.footer-links>li:nth-child(1) {
