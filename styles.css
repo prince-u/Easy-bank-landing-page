@@ -61,6 +61,12 @@ body {
     background-color: var(--white);
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem 1rem;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -163,6 +169,34 @@ button.invite-btn:active {
 }
 
 .container2>main>h1 {
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: transform ease-out 350ms,
+        opacity ease-out .8s
+}
+
+.container2>main>p {
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: transform ease-out 350ms 150ms,
+        opacity ease-out .8s 100ms
+}
+
+.container2>main>button {
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: transform ease-out 350ms 300ms,
+        opacity ease-out .8s 200ms
+}
+
+.container2>main.show>h1,
+.container2>main.show>p,
+.container2>main.show>button {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.container2>main>h1 {
     font-size: 2.5rem;
 
 }
@@ -224,10 +258,54 @@ button.invite-btn:active {
 
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem 1rem;
+.container3>main>h1 {
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: transform ease-out 350ms,
+        opacity ease-out .8s
+}
+
+.container3>main>p {
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: transform ease-out 350ms 150ms,
+        opacity ease-out .8s 100ms
+}
+
+.container3>main.show>h1,
+.container3>main.show>p {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.container3 .grid-item>.benefits-image img {
+    transform: translateX(150%);
+    opacity: 0;
+}
+
+.container3 .grid-item:nth-child(1)>.benefits-image>img {
+    transition: transform ease-out 350ms,
+        opacity ease-out .8s;
+}
+
+.container3 .grid-item:nth-child(2)>.benefits-image>img {
+    transition: transform ease-out 350ms 100ms,
+        opacity ease-out .8s 50ms;
+}
+
+.container3 .grid-item:nth-child(3)>.benefits-image>img {
+    transition: transform ease-out 350ms 200ms,
+        opacity ease-out .8s 100ms;
+}
+
+.container3 .grid-item:nth-child(4)>.benefits-image>img {
+    transition: transform ease-out 350ms 300ms,
+        opacity ease-out .8s 150ms;
+}
+
+.container3 .benefits-image.show img {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .container3>.benefits-grid h2 {
@@ -489,6 +567,12 @@ footer>.col3>.copyright {
         margin-bottom: -5.25rem;
         align-items: center;
         width: 100%
+    }
+
+    /* I'm just gonna remove the delays for the transition */
+    .container3 .grid-item>.benefits-image>img {
+        transition: transform ease-out 350ms,
+            opacity ease-out .8s !important;
     }
 
     .container4 .grid-item>main {
