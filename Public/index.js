@@ -7,9 +7,9 @@ const darkOverlay = document.querySelector(".dark-overlay");
 const html = document.querySelector("html");
 hamburgerIcon.addEventListener("click", (e) => {
   if (dropDownMenu.classList.contains("active")) {
-    hamburgerIcon.innerHTML = `<img src="../images/icon-hamburger.svg" alt="">`;
+    hamburgerIcon.innerHTML = `<img src="images/icon-hamburger.svg" alt="">`;
   } else {
-    hamburgerIcon.innerHTML = `<img src="../images/icon-close.svg" alt="">`;
+    hamburgerIcon.innerHTML = `<img src="images/icon-close.svg" alt="">`;
   }
   dropDownMenu.classList.toggle("active");
   fourPhonesImg.classList.toggle("active");
@@ -22,7 +22,7 @@ darkOverlay.addEventListener("click", () => {
   fourPhonesImg.classList.remove("active");
   darkOverlay.classList.remove("active");
   html.classList.remove("active");
-  hamburgerIcon.innerHTML = `<img src="../images/icon-hamburger.svg" alt="">`;
+  hamburgerIcon.innerHTML = `<img src="images/icon-hamburger.svg" alt="">`;
 });
 
 //This is for the intersection observer
